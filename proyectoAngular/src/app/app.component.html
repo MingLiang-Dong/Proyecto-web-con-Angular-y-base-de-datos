@@ -1,0 +1,11 @@
+<div align="center">
+  <h1>Lista</h1>
+  <table border="1" *ngIf="hayRegistros()">
+    <tr *ngFor="let usuario of usuarios">
+      <td>{{usuario.user}}</td>
+      <td>{{usuario.rol}}</td>
+      <td>{{usuario.password}}</td>
+    </tr>
+  </table>
+  <app-resgistrar></app-resgistrar>
+</div>
