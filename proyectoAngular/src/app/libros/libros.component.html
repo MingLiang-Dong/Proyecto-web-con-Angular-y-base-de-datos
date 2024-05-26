@@ -1,0 +1,28 @@
+  <div class="conteiner-xxl mx-2">
+    <div class="row">
+      <div class="col-12">
+        <h3 class="titulo">Libros</h3>
+        <hr>
+      </div>
+      <div class="col-sm-6 col-lg-12" *ngFor="let libro of libros">
+        <div class="card mb-3">
+          <a class="text-decoration-none text-dark" href="#">
+            <div class="row g-0 ">
+              <div class="col-lg-4 col-xl-3">
+                <img
+                  src={{libro.imagen}}
+                  class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-lg-8 col-xl-9">
+                <div class="card-body">
+                  <h5 class="card-title">{{libro.n_libro}}</h5>
+                  <p class="card-text">{{libro.descripcion}}</p>
+                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>

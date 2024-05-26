@@ -10,10 +10,9 @@ export class UsuariosService {
 
   constructor(private http: HttpClient) { }
 
-  obtenerUsuarios() {
-    return this.http.get(`${this.URL}ObtenerUsuarios.php`);
+  verlibros() {
+    return this.http.get(`${this.URL}Verlibros.php`);
   }
-
   validarUsuario(usuario:any) {
     return this.http.post(`${this.URL}validarUsuario.php`,JSON.stringify(usuario));
   }
@@ -25,7 +24,7 @@ export class UsuariosService {
   bajaUsuario(idUsuario: number) {
     return this.http.get(`${this.URL}BajaUsuario.php?idUsuario=${idUsuario}`);
   }
-
+  
   seleccionarUsuario(idUsuario: number) {
     return this.http.get(`${this.URL}SeleccionarUsuario.php?idUsuario=${idUsuario}`);
   }

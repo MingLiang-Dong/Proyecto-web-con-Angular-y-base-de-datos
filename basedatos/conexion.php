@@ -2,7 +2,7 @@
 
 // DATOS DE CONEXION A LA BASE DE DATOS
 function conexion() {
-  $conexion = mysqli_connect("localhost", "root", "", "tienda");
+  $conexion = mysqli_connect("localhost", "root", "", "libreria");
   
   return $conexion;
 }

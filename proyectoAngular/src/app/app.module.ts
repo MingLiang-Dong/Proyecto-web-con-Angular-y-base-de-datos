@@ -10,11 +10,13 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { UsuariosService } from './usuarios.service';
 import { ResgistrarComponent } from './resgistrar/resgistrar.component';
+import { LibrosComponent } from './libros/libros.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ResgistrarComponent
+    ResgistrarComponent,
+    LibrosComponent
   ],
   imports: [
     BrowserModule,

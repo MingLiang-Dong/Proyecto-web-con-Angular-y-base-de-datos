@@ -22,14 +22,9 @@ export class AppComponent implements OnInit{
   constructor(private usuariosServicio:UsuariosService) { }
 
   ngOnInit(){
-    this.obtenerUsuarios();
+    
   }
-
-  obtenerUsuarios() {
-    this.usuariosServicio.obtenerUsuarios().subscribe(
-      result => this.usuarios = result
-    );
-  }
+  
   altaUsuario() {
     this.usuariosServicio.altaUsuario(this.usuario).subscribe(
       datos => {
