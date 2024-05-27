@@ -1,7 +1,7 @@
 <?php 
   header('Access-Control-Allow-Origin: *'); 
   header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
-  
+  header('Content-Type: application/json');
   $json = file_get_contents('php://input'); // RECIBE EL JSON DE ANGULAR
  
   $params = json_decode($json); // DECODIFICA EL JSON Y LO GUARADA EN LA VARIABLE
@@ -11,18 +11,18 @@
   $conexion = conexion(); // CREA LA CONEXION
   
   // REALIZA LA QUERY A LA DB
-  
-  mysqli_query($conexion, "INSERT INTO usuarios(user, password,rol , email) VALUES
-                  ('$params->user','$params->password','$params->rol', '$params->email')");    
-  
+  $insert = "INSERT INTO usuarios(user, password,rol , email) VALUES ('$params->user','$params->password','$params->rol', '$params->email')";
   class Result {}
+  $response = new Result();
+  if (mysqli_query($conexion, $insert)) {
+    $response->resultado = 'OK';
+    $response->mensaje = 'SE REGISTRO EXITOSAMENTE EL USUARIO';
+  }else{
+    $response->resultado = 'NO';
+    $response->mensaje = 'EL USUARIO YA EXISTE';
+  }
 
   // GENERA LOS DATOS DE RESPUESTA
-  $response = new Result();
-  $response->resultado = 'OK';
-  $response->mensaje = 'SE REGISTRO EXITOSAMENTE EL USUARIO';
-
-  header('Content-Type: application/json');
-
+  
   echo json_encode($response); // MUESTRA EL JSON GENERADO
 ?>

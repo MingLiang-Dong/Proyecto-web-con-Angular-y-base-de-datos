@@ -25,6 +25,9 @@ export class ResgistrarComponent {
         if(this.respuesta['resultado']=='OK'){
           alert(this.respuesta['mensaje']);
         }
+        if(this.respuesta['resultado']=='NO'){
+          alert(this.respuesta['mensaje']);
+        }
       }
     );
   }
