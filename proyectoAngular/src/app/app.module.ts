@@ -16,6 +16,7 @@ import { MenuComponent } from './menu/menu.component';
 const appRoutes:Routes=[
   {path:'',component:ResgistrarComponent},
   {path:'Home',component:LibrosComponent},
+  
 ];
 
 @NgModule({
