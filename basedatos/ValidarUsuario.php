@@ -22,6 +22,9 @@
     if ($bpass==$params->password) {
         $response->resultado = 'OK';
         $response->mensaje = 'SE REGISTRO EXITOSAMENTE EL USUARIO';
+        if($row["rol"]=="admin"){
+          $response->resultado = 'ADMIN';
+        }
     }else{
         $response->resultado = 'NO';
         $response->mensaje = 'EL USUARIO NO EXISTE O CONTRASEÑA INCORRECTA';
