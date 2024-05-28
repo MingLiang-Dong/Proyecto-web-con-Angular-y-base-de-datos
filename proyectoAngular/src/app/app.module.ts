@@ -12,6 +12,7 @@ import { UsuariosService } from './usuarios.service';
 import { ResgistrarComponent } from './resgistrar/resgistrar.component';
 import { LibrosComponent } from './libros/libros.component';
 import { MenuComponent } from './menu/menu.component';
+import { AdminComponent } from './admin/admin.component';
 
 const appRoutes:Routes=[
 
@@ -27,7 +28,8 @@ const appRoutes:Routes=[
     LibrosComponent,
     MenuComponent,
     ResgistrarComponent,
-    LibrosComponent
+    LibrosComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
