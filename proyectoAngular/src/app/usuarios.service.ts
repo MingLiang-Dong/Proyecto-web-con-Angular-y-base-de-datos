@@ -16,7 +16,7 @@ export class UsuariosService {
     return this.http.get(`${this.URL}Verlibros.php`);
   }
   validarUsuario(usuario:any) {
-    return this.http.post(`${this.URL}validarUsuario.php`,JSON.stringify(usuario));
+    return this.http.post(`${this.URL}ValidarUsuario.php`,JSON.stringify(usuario));
   }
 
   altaUsuario(rusuario:any) {
