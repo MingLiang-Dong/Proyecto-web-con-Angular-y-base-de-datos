@@ -12,10 +12,14 @@ import { UsuariosService } from './usuarios.service';
 import { ResgistrarComponent } from './resgistrar/resgistrar.component';
 import { LibrosComponent } from './libros/libros.component';
 import { MenuComponent } from './menu/menu.component';
+import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';
 import { FooterComponent } from './footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
 const appRoutes: Routes = [
+
+
+
 
   { path: '', component: LoginComponent },
   { path: 'Home', component: LibrosComponent },
@@ -31,7 +35,8 @@ const appRoutes: Routes = [
     ResgistrarComponent,
     LibrosComponent,
     LoginComponent,
-    FooterComponent
+    FooterComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
