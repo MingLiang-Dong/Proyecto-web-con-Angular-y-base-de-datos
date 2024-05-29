@@ -28,11 +28,11 @@ export class UsuariosService {
     return this.http.post(`${this.URL}ActualizarLibro.php`, JSON.stringify(libro));
   }
   eliminarLibro(id_libro: number) {
-    return this.http.get(`${this.URL}EliminarLibro.php?idUsuario=${id_libro}`);
+    return this.http.get(`${this.URL}EliminarLibro.php?id_libro=${id_libro}`);
   }
   
-  seleccionarUsuario(idUsuario: number) {
-    return this.http.get(`${this.URL}SeleccionarUsuario.php?idUsuario=${idUsuario}`);
+  seleccionarLibro(id_libro: number) {
+    return this.http.get(`${this.URL}SeleccionarLibro.php?id_libro=${id_libro}`);
   }
 
   

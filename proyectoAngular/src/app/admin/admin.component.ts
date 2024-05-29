@@ -11,8 +11,8 @@ export class AdminComponent {
   libros:any=null;
   respuesta:any=null;
   libro:any = {
-    id_categoria:null,
     id_libro:null,
+    id_categoria:null,
     n_libro:null,
     descripcion:null,
     imagen:null,
@@ -21,19 +21,37 @@ export class AdminComponent {
   }
 
   constructor(private usuariosServicio:UsuariosService, private router:Router) { }
-
+  ngOnInit(){
+    this.verlibros();
+  }
+  verlibros() {
+  
+      this.usuariosServicio.verlibros().subscribe(
+        result => this.libros = result
+      );
+    
+  }
   altaLibro() {
     this.usuariosServicio.altaLibro(this.libro).subscribe(
       datos => {
         this.respuesta = datos
         if(this.respuesta['resultado']=='OK'){
-          this.router.navigate(['/Home']);
+          alert(this.respuesta['mensaje']);
+          this.verlibros();
         }
         if(this.respuesta['resultado']=='NO'){
           alert(this.respuesta['mensaje']);
         }
       }
     );
+  }
+
+  seleccionarLibro(id_libro:any){
+    this.usuariosServicio.seleccionarLibro(id_libro).subscribe(
+      (datos:any) => {
+        this.respuesta = datos[0]
+  }
+);
   }
 
   actualizarLibro() {
@@ -41,7 +59,8 @@ export class AdminComponent {
       datos => {
         this.respuesta = datos
         if(this.respuesta['resultado']=='OK'){
-          this.router.navigate(['/Home']);
+          alert(this.respuesta['mensaje']);
+          this.verlibros();
         }
         if(this.respuesta['resultado']=='NO'){
           alert(this.respuesta['mensaje']);
@@ -50,17 +69,25 @@ export class AdminComponent {
     );
   }
 
-  eliminarLibro() {
-    this.usuariosServicio.eliminarLibro(this.libro).subscribe(
+  eliminarLibro(id_libro:number) {
+    this.usuariosServicio.eliminarLibro(id_libro).subscribe(
       datos => {
         this.respuesta = datos
         if(this.respuesta['resultado']=='OK'){
-          this.router.navigate(['/Home']);
+          alert(this.respuesta['mensaje']);
+          this.verlibros();
         }
         if(this.respuesta['resultado']=='NO'){
           alert(this.respuesta['mensaje']);
         }
       }
     );
+  }
+  hayRegistros() {
+    if(this.libros == null) {
+      return false;
+    } else {
+      return true;
+    }
   }
 }

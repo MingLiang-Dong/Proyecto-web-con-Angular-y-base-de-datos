@@ -21,6 +21,7 @@ const appRoutes: Routes = [
   { path: '', component: LoginComponent },
   {path: 'registro', component:ResgistrarComponent},
   { path: 'Home', component: LibrosComponent },
+  {path: 'Admin',component:AdminComponent }
 
 ];
 
