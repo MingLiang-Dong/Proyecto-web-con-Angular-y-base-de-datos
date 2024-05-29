@@ -1,3 +1,15 @@
 form {
-    margin: 20px;
+    background: linear-gradient(to right, #aca3a3, #034b47b0);
+    padding: 20px;
+    border-radius: 10px;
+    width: 30em;
+    height: 18em;
+    box-shadow: 2px 2px 2px 2px ;
+   
+   
+}
+
+.cuerpo {
+    width: 100vw;
+    height: 100vh;
 }
