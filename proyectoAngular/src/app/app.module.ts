@@ -18,12 +18,10 @@ import { FooterComponent } from './footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
 const appRoutes: Routes = [
 
-
-
-
   { path: '', component: LoginComponent },
   {path: 'registrar', component:ResgistrarComponent},
   { path: 'Home', component: LibrosComponent },
+  {path: 'Admin',component:AdminComponent }
 
 ];
 

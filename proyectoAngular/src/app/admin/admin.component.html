@@ -1,1 +1,60 @@
-<p>admin works!</p>
+<div class="container">
+    <h1>Administracion</h1>
+    <div class="col-sm-12 float-left">
+      <table border="0" span="0" *ngIf="hayRegistros(); else sinarticulos" class="table table-borderless table-striped table-dark"  style=" border:0px; box-shadow:3px 3px 5px 4px rgba(0,0,0,0.25);">
+        <thead class="thead-dark" style="background:black; color:white;">
+          <tr>
+            <td>Imagen</td>
+            <td>id_libro</td>
+            <td>id_categoria</td>
+            <td>n_libro</td>
+            <td>descripcion</td>
+            <td>stock</td>
+            <td>precio</td>
+            <td>Borrar</td>
+            <td>Seleccionar</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let libro of libros">
+            <td><img src={{libro.imagen}} alt={{libro.n_libro}}></td>
+            <td>{{libro.id_libro}}</td>
+            <td>{{libro.id_categoria}}</td>
+            <td>{{libro.n_libro}}</td>
+            <td>{{libro.descripcion}}</td>
+            <td>{{libro.stock}}</td>
+            <td>{{libro.precio}}</td>
+            <td><button class="btn btn-danger text-white" (click)="eliminarLibro(libro.id_libro)">Borrar</button></td>
+            <td><button class="btn btn-info text-white" (click)="seleccionarLibro(libro.id_libro)">Seleccionar</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <ng-template #sinarticulos><p>No hay articulos.</p></ng-template>
+  
+  
+  <div class="card col-sm-4 p-2 float-right">
+    <p>
+      Nombre <input type="text" class="form-control m-1"type="text" [(ngModel)]="libro.id_categoria" placeholder="namaewa esponje bobu">
+    </p>
+    <p>
+      Apellido <input type="text" class="form-control m-1"type="text" [(ngModel)]="libro.id_libro" placeholder="square pantsu">
+    </p>
+    <p>
+      Correo <input type="email" class="form-control m-1"type="text" [(ngModel)]="libro.n_libro" placeholder="shikamaru.nara@gmail.com">
+    </p>
+    <p>
+      Numero <input maxlength="13" type="tel" class="form-control m-1"type="text" [(ngModel)]="libro.descripcion" placeholder="+569 3844 6175">
+    </p>
+    <p>
+      Clave <input type="password" class="form-control m-1"type="text" [(ngModel)]="libro.imagen" placeholder="***********">
+    </p>
+    <div class="row">
+      <div class="col-sm-2 "> <p><button class="btn btn-outline-dark float-left" (click)="altaLibro()" >Agregar</button></p>&nbsp;</div>
+      <div class="col-sm-2 offset-md-2"> <p><button class="btn btn-outline-dark float-right" (click)="actualizarLibro()" >Modificar</button></p></div>
+    </div>
+   
+  </div>
+  
+  </div>

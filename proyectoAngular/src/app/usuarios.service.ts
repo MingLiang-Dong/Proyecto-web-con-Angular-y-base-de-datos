@@ -12,26 +12,28 @@ export class UsuariosService {
 
   constructor(private http: HttpClient) { }
 
-  verlibros() {
-    return this.http.get(`${this.URL}Verlibros.php`);
-  }
   validarUsuario(usuario:any) {
     return this.http.post(`${this.URL}ValidarUsuario.php`,JSON.stringify(usuario));
   }
-
   altaUsuario(rusuario:any) {
     return this.http.post(`${this.URL}AltaUsuario.php`, JSON.stringify(rusuario));
   }
-
-  bajaUsuario(idUsuario: number) {
-    return this.http.get(`${this.URL}BajaUsuario.php?idUsuario=${idUsuario}`);
+  verlibros() {
+    return this.http.get(`${this.URL}Verlibros.php`);
+  }
+  altaLibro(libro:any) {
+    return this.http.post(`${this.URL}AltaLibro.php`, JSON.stringify(libro));
+  }
+  actualizarLibro(libro:any) {
+    return this.http.post(`${this.URL}ActualizarLibro.php`, JSON.stringify(libro));
+  }
+  eliminarLibro(id_libro: number) {
+    return this.http.get(`${this.URL}EliminarLibro.php?id_libro=${id_libro}`);
   }
   
-  seleccionarUsuario(idUsuario: number) {
-    return this.http.get(`${this.URL}SeleccionarUsuario.php?idUsuario=${idUsuario}`);
+  seleccionarLibro(id_libro: number) {
+    return this.http.get(`${this.URL}SeleccionarLibro.php?id_libro=${id_libro}`);
   }
 
-  editarUsuario(usuario:any) {
-    return this.http.post(`${this.URL}EditarUsuario.php`, JSON.stringify(usuario));
-  }
+  
 }
