@@ -52,4 +52,7 @@ export class LoginComponent implements OnInit {
       alert("Error al ingresar los datos");
     }
   }
+  registrar(){
+this.router.navigate(['/registrar']);
+  }
 }

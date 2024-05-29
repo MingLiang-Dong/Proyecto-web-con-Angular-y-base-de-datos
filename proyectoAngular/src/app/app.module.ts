@@ -22,7 +22,7 @@ const appRoutes: Routes = [
 
 
   { path: '', component: LoginComponent },
-  {path: 'registro', component:ResgistrarComponent},
+  {path: 'registrar', component:ResgistrarComponent},
   { path: 'Home', component: LibrosComponent },
 
 ];
