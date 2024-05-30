@@ -3,13 +3,27 @@ form {
     padding: 20px;
     border-radius: 10px;
     width: 30em;
-    height: 18em;
-    box-shadow: 2px 2px 2px 2px ;
-   
-   
+    height: 24em;
+    box-shadow: 2px 2px 2px 2px;
+
+
 }
 
 .cuerpo {
     width: 100vw;
     height: 100vh;
+}
+
+button {
+    margin-right: 1em;
+    margin-left: 2.4em;
+}
+
+h1 {
+    text-align: center;
+}
+
+.titulo {
+    font-size: 42px;
+    text-shadow: 2px 2px 2px rgb(207, 212, 210);
 }
