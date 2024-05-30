@@ -9,7 +9,7 @@
   require("conexion.php"); // IMPORTA EL ARCHIVO CON LA CONEXION A LA DB
 
   $conexion = conexion(); // CREA LA CONEXION
-  
+  //dasw
   // REALIZA LA QUERY A LA DB
   $insert = "INSERT INTO usuarios(user, password,rol , email) VALUES ('$params->user','$params->password','$params->rol', '$params->email')";
   class Result {}
