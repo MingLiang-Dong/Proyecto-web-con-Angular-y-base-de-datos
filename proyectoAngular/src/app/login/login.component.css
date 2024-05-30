@@ -15,8 +15,9 @@ form {
 }
 
 button {
+    width: 7.5em;
     margin-right: 1em;
-    margin-left: 2.4em;
+    margin-left: 2.1em;
 }
 
 h1 {

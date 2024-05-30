@@ -3,13 +3,16 @@ form {
     padding: 20px;
     border-radius: 10px;
     width: 31em;
-    height: 25em;
+    height: 25.5em;
     box-shadow: 2px 2px 2px 2px ;
-    text-align: center;
+   
    
    
 }
-
+button{
+    margin-left: 7.5em;
+    width: 7.5em;
+}
 .cuerpo {
     width: 100vw;
     height: 100vh;
