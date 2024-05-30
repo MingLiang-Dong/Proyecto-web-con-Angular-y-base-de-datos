@@ -2,15 +2,19 @@ form {
     background: linear-gradient(to right, #aca3a3, #034b47b0);
     padding: 20px;
     border-radius: 10px;
-    width: 30em;
-    height: 22em;
+    width: 31em;
+    height: 25.5em;
     box-shadow: 2px 2px 2px 2px ;
-    text-align: center;
+   
    
    
 }
-
+button{
+    margin-left: 7.5em;
+    width: 7.5em;
+}
 .cuerpo {
     width: 100vw;
     height: 100vh;
 }
+.titulo { font-size: 42px; text-shadow: 2px 2px 2px  rgb(207, 212, 210);}
