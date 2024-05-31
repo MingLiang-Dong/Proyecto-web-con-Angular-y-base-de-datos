@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from '../services/login.service';
 import { LoginRequest } from '../services/loginRequest';
-
+import { UsuariosService } from '../usuarios.service';
 
 
 @Component({
@@ -13,11 +13,17 @@ import { LoginRequest } from '../services/loginRequest';
 })
 export class LoginComponent implements OnInit {
   loginError: string = "";
+  respuesta:any=null;
+  usuario:any={
+    user:null,
+    password:null
+  }
+
   loginForm = this.formBuilder.group({
-    email: ['jimmy@gmail.com', [Validators.required, Validators.email]],
+    email: ['', [Validators.required]],
     password: ['', Validators.required],
   })
-  constructor(private formBuilder: FormBuilder, private router: Router, private loginService: LoginService) {
+  constructor(private formBuilder: FormBuilder, private router: Router, private loginService: LoginService, private usuariosServicio:UsuariosService) {
 
   }
   ngOnInit(): void {
@@ -31,28 +37,33 @@ export class LoginComponent implements OnInit {
   }
   login() {
     if (this.loginForm.valid) {
-      this.loginService.login(this.loginForm.value as LoginRequest).subscribe({
-        next: (userData) => {
-          console.log(userData);
-        },
-        error: (errorData) => {
-          console.error(errorData);
-          this.loginError = errorData;
-        },
-        complete: () => {
-          console.info("Login completo");
-          this.router.navigateByUrl('/inicio')
-          this.loginForm.reset();
-        }
-
-      })
-
+      this.validar();
     } else {
       this.loginForm.markAllAsTouched();
       alert("Error al ingresar los datos");
     }
   }
+
+  validar() {
+    this.usuariosServicio.validarUsuario(this.usuario).subscribe(
+      datos => {
+        this.respuesta = datos
+        if(this.respuesta['resultado']=='OK'){
+          this.usuariosServicio.setSuser(true);
+          this.router.navigate(['/Home']);
+        }
+        if(this.respuesta['resultado']=='ADMIN'){
+          this.router.navigate(['/Admin']);
+          this.usuariosServicio.setSadmin(true);
+        }
+        if(this.respuesta['resultado']=='NO'){
+          alert(this.respuesta['mensaje']);
+        }
+      }
+    );
+  }
+
   registrar(){
-this.router.navigate(['/registrar']);
+    this.router.navigate(['/registrar']);
   }
 }

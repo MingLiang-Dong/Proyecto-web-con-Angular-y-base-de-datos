@@ -22,6 +22,7 @@ export class AdminComponent {
 
   constructor(private usuariosServicio:UsuariosService, private router:Router) { }
   ngOnInit(){
+    this.validar();
     this.verlibros();
   }
   verlibros() {
@@ -89,5 +90,11 @@ export class AdminComponent {
     } else {
       return true;
     }
+  }
+  validar() {
+    if(this.usuariosServicio.getSadmin()==false){
+      this.router.navigate(['']);
+    }
+    return this.usuariosServicio.getSadmin();
   }
 }

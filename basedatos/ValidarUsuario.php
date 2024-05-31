@@ -14,7 +14,7 @@
   $usuario="SELECT * FROM usuarios WHERE user='$params->user'";
     class Result {}
   $response = new Result();
-  $result=$conn->query($usuario);
+  $result=$conexion->query($usuario);
  
   if(mysqli_num_rows($result)>0){
     $row = $result->fetch_assoc();

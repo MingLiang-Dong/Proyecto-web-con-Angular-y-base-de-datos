@@ -10,7 +10,23 @@ export class UsuariosService {
 
   URL = "http://localhost/proyecto/basedatos/"
 
+  private suser: boolean = false;
+  private sadmin: boolean = false;
+
   constructor(private http: HttpClient) { }
+
+  getSuser(): boolean {
+    return this.suser;
+  }
+  setSuser(value:boolean): void {
+    this.suser = value;
+  }
+  getSadmin(): boolean {
+    return this.sadmin;
+  }
+  setSadmin(value:boolean): void {
+    this.sadmin = value;
+  }
 
   validarUsuario(usuario:any) {
     return this.http.post(`${this.URL}ValidarUsuario.php`,JSON.stringify(usuario));
@@ -30,7 +46,6 @@ export class UsuariosService {
   eliminarLibro(id_libro: number) {
     return this.http.get(`${this.URL}EliminarLibro.php?id_libro=${id_libro}`);
   }
-  
   seleccionarLibro(id_libro: number) {
     return this.http.get(`${this.URL}SeleccionarLibro.php?id_libro=${id_libro}`);
   }
