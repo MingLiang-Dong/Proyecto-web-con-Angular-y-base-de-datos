@@ -49,7 +49,7 @@ export class AdminComponent {
   seleccionarLibro(id_libro:any){
     this.usuariosServicio.seleccionarLibro(id_libro).subscribe(
       (datos:any) => {
-        this.respuesta = datos[0]
+        this.libro = datos[0]
   }
 );
   }
