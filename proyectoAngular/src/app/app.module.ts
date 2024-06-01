@@ -19,9 +19,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 const appRoutes: Routes = [
 
   { path: '', component: LoginComponent },
-  {path: 'registrar', component:ResgistrarComponent},
+  { path: 'login', component: LoginComponent },
+  { path: 'registrar', component: ResgistrarComponent },
   { path: 'Home', component: LibrosComponent },
-  {path: 'Admin',component:AdminComponent }
+  { path: 'Admin', component: AdminComponent }
 
 ];
 
@@ -43,7 +44,8 @@ const appRoutes: Routes = [
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ],
   providers: [
     UsuariosService
