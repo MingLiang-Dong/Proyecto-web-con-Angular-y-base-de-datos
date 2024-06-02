@@ -14,17 +14,6 @@ export class MenuComponent {
 
   constructor(private activatedRoute: ActivatedRoute,private router: Router, private usuariosServicio:UsuariosService) { }
   ngOnInit(){
-    this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
-    ).subscribe(() => {
-      // Verificar si los parámetros de consulta han cambiado
-      const currentParams = this.activatedRoute.snapshot.queryParams;
-      const previousParams = this.activatedRoute.snapshot.queryParams;
-      if (JSON.stringify(currentParams) !== JSON.stringify(previousParams)) {
-        // Forzar la recarga del componente
-        window.location.reload();
-      }
-    });
     this.vercategorias();
   }
   vercategorias() {

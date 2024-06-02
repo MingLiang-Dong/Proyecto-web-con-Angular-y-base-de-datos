@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { UsuariosService } from '../usuarios.service';
+import { ActivatedRoute } from '@angular/router';
 import { StorageService } from '../storage.service';
-import { Router,NavigationEnd,ActivatedRoute } from '@angular/router';
-import { filter } from 'rxjs';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-categorias',
   templateUrl: './categorias.component.html',
@@ -15,17 +16,6 @@ export class CategoriasComponent {
   constructor(private route: ActivatedRoute,private router:Router ,private storageService: StorageService, private usuariosServicio:UsuariosService) { }
   ngOnInit(){
     this.validar();
-    this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
-    ).subscribe(() => {
-      // Verificar si los parámetros de consulta han cambiado
-      const currentParams = this.route.snapshot.queryParams;
-      const previousParams = this.route.snapshot.queryParams;
-      if (JSON.stringify(currentParams) !== JSON.stringify(previousParams)) {
-        // Forzar la recarga del componente
-        window.location.reload();
-      }
-    });
     this.route.queryParams.subscribe(params => {
       this.data = params['data'];
     });
