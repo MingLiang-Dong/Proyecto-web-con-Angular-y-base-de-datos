@@ -3,7 +3,7 @@
     <h1 class="titulo">Formulario de Registro</h1>
     <div class="mb-3">
       <label for="nombreUsuario" class="form-label">Nombre del Usuario</label>
-      <input type="text" id="nombreUsuario" class="form-control" [(ngModel)]="rusuario.user" name="user" />
+      <input type="text" id="nombreUsuario" class="form-control" [(ngModel)]="rusuario.user" [(ngModel)]="usuario.user" name="user" />
     </div>
     <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">Email</label>
@@ -11,7 +11,7 @@
     </div>
     <div class="mb-3">
       <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" [(ngModel)]="rusuario.password" name="password"/>
+      <input type="password" class="form-control" id="exampleInputPassword1" [(ngModel)]="rusuario.password" [(ngModel)]="usuario.password" name="password"/>
     </div>
     <button type="submit"  class="btn btn-dark btn-lg px-6 mb-6">Registrar</button>
   </form>

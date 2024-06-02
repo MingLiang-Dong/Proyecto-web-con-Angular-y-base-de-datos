@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { LoginService } from '../services/login.service';
 import { LoginRequest } from '../services/loginRequest';
 import { UsuariosService } from '../usuarios.service';
-
+import { StorageService } from '../storage.service';
 
 @Component({
   selector: 'app-login',
@@ -16,18 +16,18 @@ export class LoginComponent implements OnInit {
   respuesta:any=null;
   usuario:any={
     user:null,
-    password:null
+    password:null,
+    suser:false
   }
 
   loginForm = this.formBuilder.group({
     email: ['', [Validators.required]],
     password: ['', Validators.required],
   })
-  constructor(private formBuilder: FormBuilder, private router: Router, private loginService: LoginService, private usuariosServicio:UsuariosService) {
-
-  }
+  constructor(private storageService: StorageService,private formBuilder: FormBuilder, private router: Router, private loginService: LoginService, private usuariosServicio:UsuariosService) {  }
   ngOnInit(): void {
-
+    this.storageService.setSessionStorage('usuario', this.usuario);
+    this.storageService.setSessionStorage('admin', false);
   }
   get email() {
     return this.loginForm.controls.email;
@@ -49,12 +49,13 @@ export class LoginComponent implements OnInit {
       datos => {
         this.respuesta = datos
         if(this.respuesta['resultado']=='OK'){
-          this.usuariosServicio.setSuser(true);
+          this.usuario.suser=true;
+          this.storageService.setSessionStorage('usuario', this.usuario);
           this.router.navigate(['/Home']);
         }
         if(this.respuesta['resultado']=='ADMIN'){
           this.router.navigate(['/Admin']);
-          this.usuariosServicio.setSadmin(true);
+          this.storageService.setSessionStorage('admin', true);
         }
         if(this.respuesta['resultado']=='NO'){
           alert(this.respuesta['mensaje']);
@@ -62,7 +63,6 @@ export class LoginComponent implements OnInit {
       }
     );
   }
-
   registrar(){
     this.router.navigate(['/registrar']);
   }

@@ -1,0 +1,22 @@
+<app-menu></app-menu>
+<div class="conteiner-xxl mx-2">
+  <div class="row">
+    <div class="col-12">
+      <h3 class="titulo">Libros</h3>
+      <hr>
+    </div>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-5 g-4" >
+    <div class="col" *ngFor="let libro of libros">
+    <a class="text-decoration-none text-dark" href="#">
+    <div class="card h-100">
+      <img src={{libro.imagen}} class="card-img-top" alt={{libro.n_libro}}>
+      <div class="card-body">
+        <h5 class="card-title">{{libro.n_libro}}</h5>
+        <a href="#" class="btn btn-primary">{{libro.precio}} €</a>
+      </div>
+    </div></a>
+  </div>
+  </div>
+</div>
+</div>
+{{data}}

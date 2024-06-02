@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { UsuariosService } from '../usuarios.service';
 import { Router } from '@angular/router';
-
+import { StorageService } from '../storage.service'; 
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -20,7 +20,7 @@ export class AdminComponent {
     precio:null
   }
 
-  constructor(private usuariosServicio:UsuariosService, private router:Router) { }
+  constructor(private storageService: StorageService,private usuariosServicio:UsuariosService, private router:Router) { }
   ngOnInit(){
     this.validar();
     this.verlibros();
@@ -92,9 +92,10 @@ export class AdminComponent {
     }
   }
   validar() {
-    if(this.usuariosServicio.getSadmin()==false){
+    const storedUser = this.storageService.getSessionStorage('admin');
+    if(storedUser==false){
       this.router.navigate(['']);
     }
-    return this.usuariosServicio.getSadmin();
+    return storedUser;
   }
 }

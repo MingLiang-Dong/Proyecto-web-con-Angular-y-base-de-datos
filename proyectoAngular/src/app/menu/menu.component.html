@@ -16,17 +16,17 @@
             aria-expanded="false">
             Categorias
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item text-dark" href="#">Objetos</a></li>
-            <li><a class="dropdown-item text-dark" href="#">Nuevas Sking</a></li>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown" >
+            <div *ngFor="let categoria of categorias">
+            <li><a class="dropdown-item text-dark" (click)="navigate(categoria.id_categoria)">{{categoria.n_categoria}}</a></li>
             <li>
               <hr class="dropdown-divider">
             </li>
-            <li><a class="dropdown-item text-dark" href="#">Campeones Odiados</a></li>
+          </div>
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="">Cerrar Sesión</a>
+          <a class="nav-link active" aria-current="page" (click)="CerrarSesion()">Cerrar Sesión</a>
         </li>
       </ul>
       <!--Buscador-->

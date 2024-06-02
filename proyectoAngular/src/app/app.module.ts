@@ -16,12 +16,14 @@ import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';
 import { FooterComponent } from './footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CategoriasComponent } from './categorias/categorias.component';
 const appRoutes: Routes = [
 
-  { path: '', component: LoginComponent },
+  {path: '', component: LoginComponent },
   {path: 'registrar', component:ResgistrarComponent},
-  { path: 'Home', component: LibrosComponent },
-  {path: 'Admin',component:AdminComponent }
+  {path: 'Home', component: LibrosComponent },
+  {path: 'Admin',component:AdminComponent },
+  {path:'categoria',component:CategoriasComponent}
 
 ];
 
@@ -35,7 +37,8 @@ const appRoutes: Routes = [
     LibrosComponent,
     LoginComponent,
     FooterComponent,
-    AdminComponent
+    AdminComponent,
+    CategoriasComponent
   ],
   imports: [
     BrowserModule,

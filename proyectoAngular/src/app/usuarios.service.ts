@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { BehaviorSubject } from 'rxjs';
 //aol
 
 @Injectable({
@@ -10,23 +10,7 @@ export class UsuariosService {
 
   URL = "http://localhost/proyecto/basedatos/"
 
-  private suser: boolean = false;
-  private sadmin: boolean = false;
-
   constructor(private http: HttpClient) { }
-
-  getSuser(): boolean {
-    return this.suser;
-  }
-  setSuser(value:boolean): void {
-    this.suser = value;
-  }
-  getSadmin(): boolean {
-    return this.sadmin;
-  }
-  setSadmin(value:boolean): void {
-    this.sadmin = value;
-  }
 
   validarUsuario(usuario:any) {
     return this.http.post(`${this.URL}ValidarUsuario.php`,JSON.stringify(usuario));
@@ -49,6 +33,10 @@ export class UsuariosService {
   seleccionarLibro(id_libro: number) {
     return this.http.get(`${this.URL}SeleccionarLibro.php?id_libro=${id_libro}`);
   }
-
-  
+  vercategorias() {
+    return this.http.get(`${this.URL}VerCategorias.php`);
+  }
+  Clibros(id_categoria:any) {
+    return this.http.get(`${this.URL}Categoriaslibros.php?id_categoria=${id_categoria}`);
+  }
 }
