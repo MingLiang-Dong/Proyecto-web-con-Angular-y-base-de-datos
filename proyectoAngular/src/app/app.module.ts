@@ -17,14 +17,14 @@ import { LoginComponent } from './login/login.component';
 import { FooterComponent } from './footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CategoriasComponent } from './categorias/categorias.component';
-const appRoutes: Routes = [
 
+const appRoutes: Routes = [
   {path: '', component: LoginComponent },
   {path: 'registrar', component:ResgistrarComponent},
   {path: 'Home', component: LibrosComponent },
   {path: 'Admin',component:AdminComponent },
-  {path:'categoria',component:CategoriasComponent}
-
+  {path:'categoria',component:CategoriasComponent},
+  { path: 'login', component: LoginComponent }
 ];
 
 @NgModule({
@@ -46,7 +46,8 @@ const appRoutes: Routes = [
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ],
   providers: [
     UsuariosService

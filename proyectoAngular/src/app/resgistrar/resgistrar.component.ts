@@ -40,6 +40,8 @@ export class ResgistrarComponent {
         }
       }
     );
-    
+  }
+  volver() {
+    this.router.navigate(['/login']); 
   }
 }
