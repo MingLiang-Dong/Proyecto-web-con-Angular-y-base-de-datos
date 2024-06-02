@@ -102,4 +102,8 @@ export class AdminComponent {
     }
     return storedUser;
   }
+
+CerrarSesion(){
+  this.router.navigate(['']);
+}
 }

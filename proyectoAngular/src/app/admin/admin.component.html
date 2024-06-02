@@ -12,7 +12,8 @@
             <th>descripcion</th>
             <th>stock</th>
             <th>precio</th>
-            <th colspan="2"><button class="btn btn-info text-white" (click)="Alibro()">Añadir Libro</button></th>
+            <th><button class="btn btn-info text-white" (click)="Alibro()">Añadir Libro</button></th>
+            <th><button class="btn btn-danger text-white" (click)="CerrarSesion()">Cerrar Session</button></th>
           </tr>
         </thead>
         <tbody>
@@ -35,8 +36,8 @@
             <td>{{libro.descripcion}}</td>
             <td>{{libro.stock}}</td>
             <td>{{libro.precio}}</td>
-            <td><button class="btn btn-danger text-white" (click)="eliminarLibro(libro.id_libro)">Borrar</button></td>
             <td><button class="btn btn-info text-white" (click)="seleccionarLibro(libro.id_libro)">Seleccionar</button></td>
+            <td><button class="btn btn-danger text-white" (click)="eliminarLibro(libro.id_libro)">Borrar</button></td>
           </tr>
         </tbody>
       </table>
