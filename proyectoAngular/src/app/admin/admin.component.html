@@ -1,22 +1,32 @@
 
     <h1>Administracion</h1>
-    <div class="row justify-content-between">
-    <div class="col-sm-12">
+    <div class="row justify-content-between"> 
+    <div class="col-12">
       <table border="0" span="0" *ngIf="hayRegistros(); else sinarticulos" class="table table-borderless table-striped table-dark"  style=" border:0px; box-shadow:3px 3px 5px 4px rgba(0,0,0,0.25);">
         <thead class="thead-dark" style="background:black; color:white;">
           <tr>
-            <td>id_libro</td>
-            <td>Imagen</td>
-            <td>id_categoria</td>
-            <td>n_libro</td>
-            <td>descripcion</td>
-            <td>stock</td>
-            <td>precio</td>
-            <td>Borrar</td>
-            <td>Seleccionar</td>
+            <th>id_libro</th>
+            <th>Imagen</th>
+            <th>id_categoria</th>
+            <th>n_libro</th>
+            <th>descripcion</th>
+            <th>stock</th>
+            <th>precio</th>
+            <th colspan="2"><button class="btn btn-info text-white" (click)="Alibro()">Añadir Libro</button></th>
           </tr>
         </thead>
         <tbody>
+          <tr *ngIf="alibro">
+            <td><input type="text" class="form-control m-1" type="text" [(ngModel)]="libro.id_libro"></td>
+            <td><input type="text" class="form-control m-1" type="text" [(ngModel)]="libro.imagen"></td>
+            <td><input type="text" class="form-control m-1" type="text"  [(ngModel)]="libro.id_categoria"></td>
+            <td><input type="text" class="form-control m-1" type="text" [(ngModel)]="libro.n_libro"></td>
+            <td><input type="text" class="form-control m-1" type="text" [(ngModel)]="libro.descripcion"></td>
+            <td><input type="text" class="form-control m-1" type="text" [(ngModel)]="libro.stock"></td>
+            <td><input type="text" class="form-control m-1" type="text" [(ngModel)]="libro.precio"></td>
+            <td><button class="btn btn-info text-white" (click)="altaLibro()" >Agregar</button></td>
+            <td><button class="btn btn-info text-white" (click)="actualizarLibro()" >Modificar</button></td>
+          </tr>
           <tr *ngFor="let libro of libros">
             <td>{{libro.id_libro}}</td>
             <td><img src={{libro.imagen}} alt={{libro.n_libro}}></td>
@@ -33,36 +43,5 @@
     </div>
   
     <ng-template #sinarticulos><p>No hay articulos.</p></ng-template>
-  
-  
-  <div class="card col-sm-4">
-    <p>
-      id_categoria <input type="text" class="form-control m-1"type="text"  [(ngModel)]="libro.id_categoria" placeholder="namaewa esponje bobu">
-    </p>
-    <p>
-      id_libro <input type="text" class="form-control m-1"type="text" [(ngModel)]="libro.id_libro" placeholder="square pantsu">
-    </p>
-    <p>
-      n_libro <input type="text" class="form-control m-1"type="text" [(ngModel)]="libro.n_libro" placeholder="shikamaru.nara@gmail.com">
-    </p>
-    <p>
-      descripcion <input maxlength="text" type="text" class="form-control m-1"type="text" [(ngModel)]="libro.descripcion" placeholder="+569 3844 6175">
-    </p>
-    <p>
-      imagen <input type="text" class="form-control m-1"type="text" [(ngModel)]="libro.imagen" placeholder="***********">
-    </p>
-    <p>
-      stock <input type="text" class="form-control m-1"type="text" [(ngModel)]="libro.stock" placeholder="***********">
-    </p>
-    <p>
-      precio <input type="text" class="form-control m-1"type="text" [(ngModel)]="libro.precio" placeholder="***********">
-    </p>
-    
-    <div class="row">
-      <div class="col-sm-2 "> <p><button class="btn btn-outline-dark float-left" (click)="altaLibro()" >Agregar</button></p>&nbsp;</div>
-      <div class="col-sm-2 offset-md-2"> <p><button class="btn btn-outline-dark float-right" (click)="actualizarLibro()" >Modificar</button></p></div>
-    </div>
-   
-  </div>
-  
+ 
   </div>

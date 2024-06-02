@@ -19,6 +19,8 @@ export class AdminComponent {
     stock:null,
     precio:null
   }
+  alibro:boolean=false;
+
 
   constructor(private storageService: StorageService,private usuariosServicio:UsuariosService, private router:Router) { }
   ngOnInit(){
@@ -26,12 +28,14 @@ export class AdminComponent {
     this.verlibros();
   }
   verlibros() {
-  
       this.usuariosServicio.verlibros().subscribe(
         result => this.libros = result
       );
-    
   }
+  Alibro(){
+    this.alibro=true;
+  }
+  
   altaLibro() {
     this.usuariosServicio.altaLibro(this.libro).subscribe(
       datos => {
