@@ -54,8 +54,8 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/Home']);
         }
         if(this.respuesta['resultado']=='ADMIN'){
-          this.router.navigate(['/Admin']);
-          this.storageService.setSessionStorage('admin', true);
+         this.storageService.setSessionStorage('admin', true);
+           this.router.navigate(['/Admin']);
         }
         if(this.respuesta['resultado']=='NO'){
           alert(this.respuesta['mensaje']);
