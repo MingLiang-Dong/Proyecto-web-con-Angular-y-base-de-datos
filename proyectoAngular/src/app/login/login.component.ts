@@ -12,6 +12,7 @@ import { StorageService } from '../storage.service';
   styleUrl: './login.component.css'
 })
 export class LoginComponent implements OnInit {
+  
   loginError: string = "";
   respuesta:any=null;
   usuario:any={
