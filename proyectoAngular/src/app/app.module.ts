@@ -19,11 +19,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CategoriasComponent } from './categorias/categorias.component';
 
 const appRoutes: Routes = [
-  {path: '', component: LoginComponent },
-  {path: 'registrar', component:ResgistrarComponent},
-  {path: 'Home', component: LibrosComponent },
-  {path: 'Admin',component:AdminComponent },
-  {path:'categoria',component:CategoriasComponent},
+  { path: '', component: LoginComponent },
+  { path: 'registrar', component: ResgistrarComponent },
+  { path: 'Home', component: LibrosComponent },
+  { path: 'Admin', component: AdminComponent },
+  { path: 'categoria', component: CategoriasComponent },
   { path: 'login', component: LoginComponent }
 ];
 

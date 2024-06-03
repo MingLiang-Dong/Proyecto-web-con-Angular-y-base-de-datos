@@ -1,5 +1,7 @@
 .navbar {
     border-radius: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .dropdown-item:hover {
