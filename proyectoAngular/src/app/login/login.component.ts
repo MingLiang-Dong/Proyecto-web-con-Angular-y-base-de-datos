@@ -13,13 +13,13 @@ import { StorageService } from '../storage.service';
 })
 export class LoginComponent implements OnInit {
   
-  //loginError: string = "";
-  //respuesta:any=null;
-  //usuario:any={
-  //  user:null,
-  //  password:null,
-  //  suser:false
-  //}
+  loginError: string = "";
+  respuesta:any=null;
+  usuario:any={
+    user:null,
+    password:null,
+    suser:false
+  }
 
   loginForm = this.formBuilder.group({
     email: ['', [Validators.required]],
