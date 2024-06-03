@@ -2,16 +2,16 @@ form {
     background: linear-gradient(to right, #aca3a3, #034b47b0);
     padding: 20px;
     border-radius: 10px;
-    width: 31em;
-    height: 25.5em;
+    width: 32em;
+    height: 27.5em;
     box-shadow: 2px 2px 2px 2px ;
    
    
    
 }
 button{
-    margin-left: 2.7em;
-    width: 7.5em;
+    margin-left: 0.5em;
+    width: 7em;
 }
 .cuerpo {
     width: 100vw;
