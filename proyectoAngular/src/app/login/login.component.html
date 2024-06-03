@@ -5,15 +5,15 @@
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label ">Nombre Usuario</label>
 
-            <input formControlName="text" type="text" class="form-control" id="exampleInputEmail1"
+            <input formControlName="email" type="text" class="form-control" id="exampleInputEmail1"
                 aria-describedby="emailHelp" [(ngModel)]="usuario.user">
 
             <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
                 <div *ngIf="email.errors?.['required']">
-                    El Email es requerido.
+                    El Usuario es requerido.
                 </div>
                 <div *ngIf="email.errors?.['email']">
-                    El Email debe tener un formato válido.
+                    El Usuario es requerido.
                 </div>
             </div>
         </div>
