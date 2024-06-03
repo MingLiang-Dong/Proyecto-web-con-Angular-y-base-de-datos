@@ -12,20 +12,20 @@ import { StorageService } from '../storage.service';
   styleUrl: './login.component.css'
 })
 export class LoginComponent implements OnInit {
-  
-  //loginError: string = "";
-  //respuesta:any=null;
-  //usuario:any={
-  //  user:null,
-  //  password:null,
-  //  suser:false
-  //}
+
+  loginError: string = "";
+  respuesta: any = null;
+  usuario: any = {
+    user: null,
+    password: null,
+    suser: false
+  }
 
   loginForm = this.formBuilder.group({
     email: ['', [Validators.required]],
     password: ['', Validators.required],
   })
-  constructor(private storageService: StorageService,private formBuilder: FormBuilder, private router: Router, private loginService: LoginService, private usuariosServicio:UsuariosService) {  }
+  constructor(private storageService: StorageService, private formBuilder: FormBuilder, private router: Router, private loginService: LoginService, private usuariosServicio: UsuariosService) { }
   ngOnInit(): void {
     this.storageService.setSessionStorage('usuario', this.usuario);
     this.storageService.setSessionStorage('admin', false);
@@ -44,27 +44,26 @@ export class LoginComponent implements OnInit {
       alert("Error al ingresar los datos");
     }
   }
-
   validar() {
     this.usuariosServicio.validarUsuario(this.usuario).subscribe(
       datos => {
         this.respuesta = datos
-        if(this.respuesta['resultado']=='OK'){
-          this.usuario.suser=true;
+        if (this.respuesta['resultado'] == 'OK') {
+          this.usuario.suser = true;
           this.storageService.setSessionStorage('usuario', this.usuario);
           this.router.navigate(['/Home']);
         }
-        if(this.respuesta['resultado']=='ADMIN'){
-         this.storageService.setSessionStorage('admin', true);
-           this.router.navigate(['/Admin']);
+        if (this.respuesta['resultado'] == 'ADMIN') {
+          this.storageService.setSessionStorage('admin', true);
+          this.router.navigate(['/Admin']);
         }
-        if(this.respuesta['resultado']=='NO'){
+        if (this.respuesta['resultado'] == 'NO') {
           alert(this.respuesta['mensaje']);
         }
       }
     );
   }
-  registrar(){
+  registrar() {
     this.router.navigate(['/registrar']);
   }
 }
