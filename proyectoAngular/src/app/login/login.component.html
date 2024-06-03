@@ -3,12 +3,12 @@
         <p class="text-danger">{{loginError}}</p>
         <h1 class="titulo">Bienvenido a JIMG</h1><br>
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label ">Usuario</label>
+            <label for="exampleInputEmail1" class="form-label ">Email</label>
             <input formControlName="email" type="text" class="form-control" id="exampleInputEmail1"
                 aria-describedby="emailHelp" [(ngModel)]="usuario.user">
             <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
                 <div *ngIf="email.errors?.['required']">
-                    El usuario es requerido.
+                    El Email es requerido.
                 </div>
                 <div *ngIf="email.errors?.['email']">
                     El Email debe tener un formato válido.
