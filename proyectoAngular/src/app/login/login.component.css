@@ -2,7 +2,7 @@ form {
     background: linear-gradient(to right, #aca3a3, #034b47b0);
     padding: 20px;
     border-radius: 10px;
-    width: 30em;
+    width: 32em;
     height: 25em;
     box-shadow: 2px 2px 2px 2px;
 
@@ -16,8 +16,7 @@ form {
 
 button {
     width: 7.5em;
-    margin-right: 1em;
-    margin-left: 2.1em;
+   margin-left: 0.5em;
 }
 
 h1 {
