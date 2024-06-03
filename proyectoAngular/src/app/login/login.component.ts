@@ -12,6 +12,7 @@ import { StorageService } from '../storage.service';
   styleUrl: './login.component.css'
 })
 export class LoginComponent implements OnInit {
+  /*
   loginError: string = "";
   respuesta:any=null;
   usuario:any={
@@ -19,7 +20,7 @@ export class LoginComponent implements OnInit {
     password:null,
     suser:false
   }
-
+*/
   loginForm = this.formBuilder.group({
     email: ['', [Validators.required]],
     password: ['', Validators.required],
