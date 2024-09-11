@@ -52,6 +52,7 @@ export class AdminComponent {
   }
 
   seleccionarLibro(id_libro:any){
+    this.Alibro();
     this.usuariosServicio.seleccionarLibro(id_libro).subscribe(
       (datos:any) => {
         this.libro = datos[0]
